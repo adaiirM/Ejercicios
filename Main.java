@@ -1,57 +1,26 @@
-package com.company;
-
-import java.util.Scanner;
+package ej2;
 
 public class Main {
-
     public static void main(String[] args) {
+         int[] a = {6,5,-9};
+         int[] b = {4,3,13};
+         int[] a2 = new int[3];
+         int[] b2 = new int[3];
+         int[] r = new int[3];
+        //Multiplicar por el segun elemento
+         for(int i = 0; i < 3; i++){
+             a2[i] = a[i] * (b[1]);
+             b2[i] = b[i] * (a[1]);
+         }
+         //Ciclo para restar las ecuaciones
+         for(int i = 0; i < 3; i++){
+            r[i] = a2[i] - b2[i];
+         }
 
-        Scanner s1 = new Scanner(System.in);
-        Scanner s2 = new Scanner(System.in);
-
-	    System.out.print("Ingrese la cantidad de elementos a operar: ");
-        int n = s1.nextInt();
-        float[]a = new float[n];
-
-        for(int c = 0; c < n; c++){
-            System.out.print("\nIngresa el "+(c+1)+" numero: ");
-            a[c] = s1.nextInt();
-        }
-        System.out.println("Menu de operaciones\n- Suma\n- Resta\n- Multiplicacion\n- Division\n- Modulo");
-        System.out.print("Escribe la operacion que desees realizar: ");
-
-        switch (s2.nextLine().toLowerCase()){
-            case "suma":
-                System.out.println("Suma");
-                Suma s = new Suma(a, n);
-                System.out.print(s);
-                break;
-            case "resta":
-                System.out.println("Resta");
-                Resta r = new Resta(a, n);
-                System.out.print(r);
-                break;
-            case "multiplicacion":
-                System.out.println("Multiplicacion\n");
-                Mutiplicacion m = new Mutiplicacion(a, n);
-                System.out.print(m);
-                break;
-            case "division":
-                System.out.println("Division\n");
-                Division d = new Division(a, n);
-                System.out.print(d);
-                break;
-            case "modulo":
-                if(n == 2){
-                    System.out.println("Modulo\n");
-                    Modulo mo = new Modulo(a);
-                    System.out.println(mo);
-                }else
-                    System.out.println("ERROR - Ingresa solo dos valores");
-                break;
-            default:
-                System.out.println("Operacion incorrecta");
-                break;
-        }
+        int v1 = r[2] / r[0];
+         //Despejar la segunda incognita
+        int v2 = (a[2]-(a[0] * v1))/a[1];
+        System.out.println("El valor de x: "+v1+"\nEl valor de y: "+v2);
     }
 }
+
